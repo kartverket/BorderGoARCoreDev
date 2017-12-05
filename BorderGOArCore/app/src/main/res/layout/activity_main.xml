@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="no.kartverket.bordergoarcore.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.opengl.GLSurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="top" />
+
+    <Button
+        android:id="@+id/mapButton"
+        style="@style/AppTheme.Button.OnMap"
+        android:layout_gravity="bottom|left"
+        android:onClick="showMap"
+        android:text="Kalibrer via kart" />
+
+        <include layout="@layout/content_info"/>
+
+
+     <GridLayout
+        android:id="@+id/mapcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:visibility="invisible">
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+
+            android:visibility="invisible"
+            tools:context="com.google.ar.core.examples.java.helloar.MapsActivity" >
+            <Button
+                style="@style/AppTheme.Button.OnMap"
+                android:layout_gravity="right|bottom"
+                android:text="Angi min posisjon"
+                android:onClick="setCurrentPos"
+
+                />
+
+            <Button
+                style="@style/AppTheme.Button.OnMap"
+                android:layout_gravity="right|top"
+                android:text="Tilbake"
+                android:onClick="endMapCalibration"
+
+                />
+
+
+            <Button
+                android:id="@+id/toggleAerialButton"
+                style="@style/AppTheme.Button.OnMap"
+                android:layout_gravity="top|left"
+                android:text="Vis grunnkart"
+                android:onClick="toggleAerialClick"
+
+                />
+
+            <Button
+                android:id="@+id/removePointsButton"
+                style="@style/AppTheme.Button.OnMap"
+                android:background="@color/colorRed"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="bottom|left"
+                android:text="Fjern punkter"
+                android:visibility="invisible"
+                android:onClick="clearMarkersClick"
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/crosshair"
+                />
+        </fragment>
+    </GridLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/menuButtonContainer"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            android:background="@color/colorWhite"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp">
+            <Button
+                android:id="@+id/menuButton"
+                style="@android:style/Widget.Material.Button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/menu"
+                android:onClick="showMenu" />
+        </LinearLayout>
+
+
+        <GridLayout
+            android:id="@+id/logListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:rowCount="2"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            >
+            <Button
+                android:id="@+id/closeList"
+                style="@style/AppTheme.Button.OnMap"
+                android:layout_gravity="bottom|left"
+                android:onClick="closeLogList"
+                android:text="Tilbake" />
+            <ListView
+                android:id="@+id/logList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="8dp"/>
+
+        </GridLayout>
+
+        <GridLayout
+            android:id="@+id/graphContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:visibility="invisible"
+            android:rowCount="2"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/closeGraph"
+                style="@style/AppTheme.Button.OnMap"
+                android:layout_gravity="bottom|left"
+                android:onClick="closeGraph"
+                android:text="Tilbake" />
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/graph"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp" />
+        </GridLayout>
+
+
+    </FrameLayout>
+
+    <include layout="@layout/content_menu"/>
+
+</android.support.v4.widget.DrawerLayout>
