@@ -1,5 +1,7 @@
 ﻿# BorderGoArCore
-This repo is a work in progress. It contains sourcecode for an attempted Tango to ARCore port of an experimental android app utilizing the ARCore augmented-reality platform. The original repo based on the Tango-platform is in found in [kartverket/BorderGo](https://github.com/kartverket/BorderGo) The Norwegian Map Authority ([Kartverket](http://www.kartverket.no)) initiated the project, financed the development as well as providing access to public datasets. Norkart AS was given the assignment to develop a working solution and implement the code for the app.
+This repo is a work in progress. 
+
+The repo contains sourcecode for an attempted Tango to ARCore port of an experimental android app utilizing the ARCore augmented-reality platform. The original repo based on the Tango-platform is in found in [kartverket/BorderGo](https://github.com/kartverket/BorderGo) The Norwegian Map Authority ([Kartverket](http://www.kartverket.no)) initiated the project, financed the development as well as providing access to public datasets. Norkart AS was given the assignment to develop a working solution and implement the code for the app.
 
 The specific purpose of the experiment is to attempt to syncronize the ARCore Coordinate system with the real geographical location and compass orientation to be able to display the cadestral borders (land properties) directly on the physical terrain as seen through the AR camera view on an Android smartphone. 
 
